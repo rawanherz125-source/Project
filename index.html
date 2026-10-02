@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Donut Worry</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        Donut Worry 🍩
+    </div>
+    <nav>
+
+        <a href="#home">Home</a>
+        <a href="#menu">Donuts</a>
+        <a href="#customize">Customize</a>
+        <a href="#booking">Book Now</a>
+
+        <button id="cartBtn" onclick="openCart()">
+            🛒 Cart
+            <span id="cartCount">0</span>
+        </button>
+    </nav>
+</header>
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="hero-small">
+            FRESH • SWEET • HAPPY
+        </p>
+        <h1>
+            Donuts that make
+            <span>your day better.</span>
+        </h1>
+        <p class="hero-description">
+            Freshly baked donuts made with love,
+            delicious flavors and a little bit of happiness.
+        </p>
+        <div class="hero-buttons">
+            <button onclick="goToMenu()">
+                Explore Donuts 🍩
+            </button>
+
+            <button
+                class="secondary-btn"
+                onclick="document.getElementById('customize').scrollIntoView({behavior:'smooth'})"
+            >
+                Customize Your Box
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img
+            src="images/hero-donut.jpg"
+            alt="Donut"
+        >
+
+    </div>
+
+</section>
+
+
+<section class="menu" id="menu">
+
+    <h2>Our Donuts</h2>
+
+    <div class="donut-container">
+
+        <div class="donut-card">
+
+            <div class="donut-image">
+                <img
+                    src="images/chocolate.jpg"
+                    alt="Chocolate Dream"
+                >
+            </div>
+
+            <h3>Chocolate Dream</h3>
+
+            <p>
+                Chocolate glazed donut.
+            </p>
+
+            <span>
+                45 EGP
+            </span>
+
+            <button
+                onclick="addToCart('Chocolate Dream',45)"
+            >
+                Add To Cart
+            </button>
+
+        </div>
+
+
+        <div class="donut-card">
+
+            <div class="donut-image">
+                <img
+                    src="images/strawberry.jpg"
+                    alt="Strawberry Kiss"
+                >
+            </div>
+
+            <h3>Strawberry Kiss</h3>
+
+            <p>
+                Strawberry glazed donut.
+            </p>
+
+            <span>
+                50 EGP
+            </span>
+
+            <button
+                onclick="addToCart('Strawberry Kiss',50)"
+            >
+                Add To Cart
+            </button>
+
+        </div>
+
+
+        <div class="donut-card">
+
+            <div class="donut-image">
+                <img
+                    src="images/oreo.jpg"
+                    alt="Oreo Crunch"
+                >
+            </div>
+
+            <h3>Oreo Crunch</h3>
+
+            <p>
+                Oreo topped donut.
+            </p>
+
+            <span>
+                55 EGP
+            </span>
+
+            <button
+                onclick="addToCart('Oreo Crunch',55)"
+            >
+                Add To Cart
+            </button>
+
+        </div>
+
+
+        <div class="donut-card">
+
+            <div class="donut-image">
+                <img
+                    src="images/lotus.jpg"
+                    alt="Lotus Heaven"
+                >
+            </div>
+
+            <h3>Lotus Heaven</h3>
+
+            <p>
+                Lotus flavored donut.
+            </p>
+
+            <span>
+                60 EGP
+            </span>
+
+            <button
+                onclick="addToCart('Lotus Heaven',60)"
+            >
+                Add To Cart
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="customize" id="customize">
+
+    <h2>
+        Customize Your Box 🍩
+    </h2>
+
+    <div class="box-options">
+
+        <label>
+
+            <input
+                type="radio"
+                name="boxSize"
+                value="6"
+                checked
+            >
+
+            6 Donuts - 250 EGP
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="radio"
+                name="boxSize"
+                value="12"
+            >
+
+            12 Donuts - 450 EGP
+
+        </label>
+
+    </div>
+
+
+    <h3>
+        Choose Your Flavors
+    </h3>
+
+
+    <div class="flavor-row">
+
+        <span>
+            Chocolate
+        </span>
+
+        <button
+            onclick="changeFlavor('Chocolate',-1)"
+        >
+            −
+        </button>
+
+        <span id="Chocolate">
+            0
+        </span>
+
+        <button
+            onclick="changeFlavor('Chocolate',1)"
+        >
+            +
+        </button>
+
+    </div>
+
+
+    <div class="flavor-row">
+
+        <span>
+            Strawberry
+        </span>
+
+        <button
+            onclick="changeFlavor('Strawberry',-1)"
+        >
+            −
+        </button>
+
+        <span id="Strawberry">
+            0
+        </span>
+
+        <button
+            onclick="changeFlavor('Strawberry',1)"
+        >
+            +
+        </button>
+
+    </div>
+
+
+    <div class="flavor-row">
+
+        <span>
+            Oreo
+        </span>
+
+        <button
+            onclick="changeFlavor('Oreo',-1)"
+        >
+            −
+        </button>
+
+        <span id="Oreo">
+            0
+        </span>
+
+        <button
+            onclick="changeFlavor('Oreo',1)"
+        >
+            +
+        </button>
+
+    </div>
+
+
+    <div class="flavor-row">
+
+        <span>
+            Lotus
+        </span>
+
+        <button
+            onclick="changeFlavor('Lotus',-1)"
+        >
+            −
+        </button>
+
+        <span id="Lotus">
+            0
+        </span>
+
+        <button
+            onclick="changeFlavor('Lotus',1)"
+        >
+            +
+        </button>
+
+    </div>
+
+
+    <p>
+        Selected:
+
+        <strong id="selectedCount">
+            0
+        </strong>
+
+        /
+
+        <strong id="boxCount">
+            6
+        </strong>
+    </p>
+
+
+    <h3 id="customPrice">
+        250 EGP
+    </h3>
+
+
+    <button onclick="addCustomBox()">
+        Add Box To Cart
+    </button>
+
+</section>
+
+
+<section class="booking" id="booking">
+
+    <h2>
+        Book Your Order 🍩
+    </h2>
+
+
+    <div id="bookingItems"></div>
+
+
+    <div class="booking-summary">
+
+        <p>
+
+            <span>
+                Subtotal
+            </span>
+
+            <span id="bookingSubtotal">
+                0 EGP
+            </span>
+
+        </p>
+
+
+        <p>
+
+            <span>
+                Delivery
+            </span>
+
+            <span id="bookingDelivery">
+                0 EGP
+            </span>
+
+        </p>
+
+
+        <h3>
+
+            <span>
+                Total
+            </span>
+
+            <span id="bookingTotal">
+                0 EGP
+            </span>
+
+        </h3>
+
+    </div>
+
+
+    <form id="bookingForm">
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Your Name"
+            required
+        >
+
+
+        <input
+            type="tel"
+            id="phone"
+            placeholder="Phone Number"
+            required
+        >
+
+
+        <textarea
+            id="address"
+            placeholder="Delivery Address"
+            required
+        ></textarea>
+
+
+        <h3 class="payment-title">
+            Payment Method
+        </h3>
+
+
+        <div class="payment-options">
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="Cash on Delivery"
+                    checked
+                >
+
+                Cash on Delivery
+
+            </label>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="Visa / Card"
+                >
+
+                Visa / Card
+
+            </label>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="Wallet"
+                >
+
+                Wallet
+
+            </label>
+
+        </div>
+
+
+        <input
+            type="date"
+            id="date"
+            required
+        >
+
+
+        <input
+            type="time"
+            id="time"
+            required
+        >
+
+
+        <button type="submit">
+            Confirm Booking 🍩
+        </button>
+
+    </form>
+
+</section>
+
+
+<div
+    class="cart-overlay"
+    id="cartOverlay"
+>
+
+    <div class="cart-box">
+
+        <div class="cart-header">
+
+            <h2>
+                Your Cart 🛒
+            </h2>
+
+            <button onclick="closeCart()">
+                ×
+            </button>
+
+        </div>
+
+
+        <div id="cartItems"></div>
+
+
+        <div class="cart-summary">
+
+            <div>
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong id="cartSubtotal">
+                    0 EGP
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Delivery
+                </span>
+
+                <strong id="deliveryFee">
+                    0 EGP
+                </strong>
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="final-row">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="cartFinalTotal">
+                    0 EGP
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="cart-buttons">
+
+            <button
+                class="clear-btn"
+                onclick="clearCart()"
+            >
+                Clear Cart
+            </button>
+
+
+            <button
+                class="checkout-btn"
+                onclick="goToBooking()"
+            >
+                Book Now
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<section
+    class="confirmation"
+    id="confirmation"
+>
+
+    <div class="confirmation-box">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+
+        <h1>
+            Order Confirmed!
+        </h1>
+
+
+        <p>
+            Thank you for ordering
+            from Donut Worry 🍩
+        </p>
+
+
+        <div class="order-number">
+
+            Order #
+
+            <span id="orderNumber"></span>
+
+        </div>
+
+
+        <div class="customer-details">
+
+            <p>
+
+                <strong>
+                    Name:
+                </strong>
+
+                <span id="confirmName"></span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Phone:
+                </strong>
+
+                <span id="confirmPhone"></span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Address:
+                </strong>
+
+                <span id="confirmAddress"></span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Date:
+                </strong>
+
+                <span id="confirmDate"></span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Time:
+                </strong>
+
+                <span id="confirmTime"></span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Payment:
+                </strong>
+
+                <span id="confirmPayment"></span>
+
+            </p>
+
+        </div>
+
+
+        <div
+            class="confirmed-items"
+            id="confirmedItems"
+        ></div>
+
+
+        <div class="confirmed-price">
+
+            <p>
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span id="confirmedSubtotal"></span>
+
+            </p>
+
+
+            <p>
+
+                <span>
+                    Delivery
+                </span>
+
+                <span id="confirmedDelivery"></span>
+
+            </p>
+
+
+            <h2>
+
+                <span>
+                    Total
+                </span>
+
+                <span id="confirmedTotal"></span>
+
+            </h2>
+
+        </div>
+
+
+        <button onclick="goToHome()">
+            Back To Home
+        </button>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 Donut Worry 🍩
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
